@@ -1,0 +1,13 @@
+{
+  "@mendix/generator-widget": {
+    "promptValues": {
+      "organization": "Magnus Green",
+      "copyright": "2020 Mendix Technology BV",
+      "license": "Apache-2.0",
+      "author": "Anne Reiff, Daan Best, Daan Verweij, Erik Roepman, Guido Leeuwis, Matteo Timmermans, Reinier Sombeek",
+      "programmingLanguage": "typescript",
+      "platform": "web",
+      "boilerplate": "empty"
+    }
+  }
+}
