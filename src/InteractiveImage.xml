@@ -10,7 +10,7 @@
         <propertyGroup caption="General">
             <property key="sampleText" type="string" required="false">
                 <caption>Default value</caption>
-                <description>Sample text input</description>
+                <description>Sample text input test</description>
             </property>
         </propertyGroup>
     </properties>
