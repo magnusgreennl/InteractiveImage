@@ -8,9 +8,9 @@
     <icon/>
     <properties>
         <propertyGroup caption="General">
-            <property key="sampleText" type="string" required="false">
-                <caption>Default value</caption>
-                <description>Sample text input test</description>
+            <property key="bgImage" type="image" required="false">
+                <caption>Image</caption>
+                <description>Image used to display</description>
             </property>
         </propertyGroup>
     </properties>
