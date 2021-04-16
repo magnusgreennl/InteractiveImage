@@ -12,6 +12,46 @@
                 <caption>Image</caption>
                 <description>Image used to display</description>
             </property>
-        </propertyGroup>
+            <property key="data" type="datasource" isList="true" required="false">
+                <caption>Data source</caption>
+                <description />        
+            </property>            
+            <property key="coordinateTopX" type="attribute" dataSource="data">
+                <caption>X position</caption>
+                <description></description>
+                <attributeTypes>
+                    <attributeType name="Decimal"/>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+            <property key="coordinateTopY" type="attribute" dataSource="data">
+                <caption>Y position</caption>
+                <description></description>
+                <attributeTypes>
+                    <attributeType name="Decimal"/>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+            <property key="coordinateBottomX" type="attribute" dataSource="data">
+                <caption>X position</caption>
+                <description></description>
+                <attributeTypes>
+                    <attributeType name="Decimal"/>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+            <property key="coordinateBottomY" type="attribute" dataSource="data">
+                <caption>Y position</caption>
+                <description></description>
+                <attributeTypes>
+                    <attributeType name="Decimal"/>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>          
+            <property key="actionOnClick" type="action" dataSource="data">
+                <caption>On click</caption>
+                <description>Action to be performed when area is clicked</description>
+            </property>            
+        </propertyGroup>                             
     </properties>
 </widget>
