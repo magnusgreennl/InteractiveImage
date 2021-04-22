@@ -13,10 +13,10 @@ export interface InteractiveImageContainerProps {
     tabIndex?: number;
     bgImage?: DynamicValue<WebImage>;
     data?: ListValue;
-    coordinateTopX: ListAttributeValue<BigJs.Big>;
-    coordinateTopY: ListAttributeValue<BigJs.Big>;
-    coordinateBottomX: ListAttributeValue<BigJs.Big>;
-    coordinateBottomY: ListAttributeValue<BigJs.Big>;
+    x: ListAttributeValue<BigJs.Big>;
+    y: ListAttributeValue<BigJs.Big>;
+    width: ListAttributeValue<BigJs.Big>;
+    height: ListAttributeValue<BigJs.Big>;
     actionOnClick?: ListActionValue;
 }
 
@@ -25,9 +25,9 @@ export interface InteractiveImagePreviewProps {
     style: string;
     bgImage: string;
     data: {} | null;
-    coordinateTopX: string;
-    coordinateTopY: string;
-    coordinateBottomX: string;
-    coordinateBottomY: string;
+    x: string;
+    y: string;
+    width: string;
+    height: string;
     actionOnClick: {} | null;
 }
