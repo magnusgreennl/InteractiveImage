@@ -6,7 +6,7 @@
   "copyright": "2020 Mendix Technology BV",
   "author": "Anne Reiff, Daan Best, Daan Verweij, Erik Roepman, Guido Leeuwis, Matteo Timmermans, Reinier Sombeek",
   "config": {
-    "projectPath": "./tests/InteractiveImage-main/",
+    "projectPath": "./tests/InteractiveImage-Erik/",
     "mendixHost": "http://localhost:8080",
     "developmentPort": "3000"
   },
