@@ -22,16 +22,12 @@ Place your custom CSS here
       text-decoration: none;
       color: rgba(0,0,0,0.8);
       border-bottom: 1px solid #edd;
-      -webkit-transition: .3s border-bottom;
-      transition: .3s border-bottom;
   }
   svg rect {
-      -webkit-transition: .6s all;
-      transition: .6s all;
       fill: none;
       pointer-events: all;    
   }
-  
+
   svg rect:hover {
       fill: #22aa22;
   }
