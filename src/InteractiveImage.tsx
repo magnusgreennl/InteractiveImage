@@ -6,6 +6,12 @@ import "./ui/InteractiveImage.css";
 
 export default class InteractiveImage extends Component<InteractiveImageContainerProps> {
     render(): ReactNode {
-        return <div>Nothing here yet</div>;
+        const {bgImage} = this.props
+        if(bgImage?.value !== undefined) {
+            console.log(bgImage);
+            return <img className= "bgImage" src={bgImage.value.uri}/>
+        }
+
+       else return <div>please upload an image</div>;
     }
 }

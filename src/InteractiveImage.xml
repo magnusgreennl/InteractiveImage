@@ -9,9 +9,9 @@
     <properties>
         <propertyGroup caption="General">
             <property key="bgImage" type="image" required="false">
-                <caption>Image</caption>
-                <description>Image used to display</description>
-            </property>
+	        <caption>Background Image</caption>
+	        <description>Image shown in a background</description>
+        </property>
         </propertyGroup>
     </properties>
 </widget>
