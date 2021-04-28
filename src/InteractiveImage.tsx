@@ -64,18 +64,18 @@ export default class InteractiveImage extends Component<InteractiveImageContaine
      */
     renderHotspot(item: ObjectItem){
         console.info(`${this._id}: rendering hotspot for item ${item.id}`)
-        const { x, y, width, height, actionOnClick} = this.props;
-
+        const { x, y, width, height, text, actionOnClick} = this.props;
+        // These are defined as functions
         const commonProps = {
             x: Number(x(item).value?.toString()),
             y: Number(y(item).value?.toString()),
             width: Number(width(item).value?.toString()),
-            height: Number(height(item).value?.toString()),  
+            height: Number(height(item).value?.toString()),
+            text: text?.(item).value?.toString(), 
             onClick: (event: React.MouseEvent<HTMLElement>) => {                          
                 let action = actionOnClick?.(item)
                 if (action?.canExecute)
                     action.execute() 
-                
             }
         }
         return <Hotspot {...commonProps} />    

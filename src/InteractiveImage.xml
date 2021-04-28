@@ -43,7 +43,14 @@
                 <attributeTypes>
                     <attributeType name="Integer"/>
                 </attributeTypes>
-            </property>          
+            </property>
+            <property key="text" type="attribute" dataSource="data" required="false">
+                <caption>Text</caption>
+                <description>Text displayed (we assume it is a number 0-99)</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>                     
             <property key="actionOnClick" type="action" dataSource="data">
                 <caption>On click</caption>
                 <description>Action to be performed when area is clicked</description>

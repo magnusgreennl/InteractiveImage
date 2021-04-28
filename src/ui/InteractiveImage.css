@@ -19,15 +19,31 @@ Place your custom CSS here
   }
 
   a {
-      text-decoration: none;
-      color: rgba(0,0,0,0.8);
-      border-bottom: 1px solid #edd;
-  }
-  svg rect {
-      fill: none;
-      pointer-events: all;    
+    text-decoration: none;
   }
 
-  svg rect:hover {
-      fill: #22aa22;
+  a:hover{
+    text-decoration: none;
+  }
+
+  svg text {
+    pointer-events: none;    
+  }
+
+  svg g:hover text {
+    fill: blue;
+  }
+
+  svg rect {
+    fill: none;
+    pointer-events: all;
+    cursor: pointer; 
+  }
+
+  svg g:hover rect {
+    fill: #22aa22;
+  }
+
+  svg text{
+    font: 30px serif; fill: red;
   }
