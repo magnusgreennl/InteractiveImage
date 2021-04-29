@@ -1,3 +1,10 @@
 /*
 Place your custom CSS here
 */
+Canvas {
+    background: #f8f8f8;
+    padding: 0;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    display: block;
+  }

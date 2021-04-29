@@ -4,7 +4,7 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
-import { DynamicValue, WebImage } from "mendix";
+import { DynamicValue, EditableValue, WebImage } from "mendix";
 
 export interface InteractiveImageContainerProps {
     name: string;
@@ -12,10 +12,12 @@ export interface InteractiveImageContainerProps {
     style?: CSSProperties;
     tabIndex?: number;
     bgImage?: DynamicValue<WebImage>;
+    Rectangle: EditableValue<string>;
 }
 
 export interface InteractiveImagePreviewProps {
     class: string;
     style: string;
     bgImage: string;
+    Rectangle: string;
 }
