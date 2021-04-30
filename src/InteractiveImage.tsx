@@ -22,6 +22,7 @@ export interface InteractiveImageState {
 export default class InteractiveImage extends Component<InteractiveImageContainerProps> {
     // Use a reference to determine the image height that will be used for the svg viewport
     private myImageRef = createRef<HTMLImageElement>()
+    private mySvgRef = createRef<SVGSVGElement>()
     private _id: String
 
     readonly state: InteractiveImageState = {
@@ -80,7 +81,7 @@ export default class InteractiveImage extends Component<InteractiveImageContaine
      * @returns JSX:Element
      */
     renderHotspot(item: ObjectItem){
-        console.info(`${this._id}: rendering hotspot for item ${item.id}`)
+        console.log(`${this._id}: rendering hotspot for item ${item.id}`)
         const { x, y, width, height, text, actionOnClick} = this.props // The ListAttributeValue and ListAttrbuteAction are functions defined by Mendix
                 const commonProps = { // Construct a new props object that we can pass to the Hotspot component
             x: Number(x(item).value?.valueOf()), // Since the Big.ValueOf() returns a string we still need to parse it to a Number
@@ -97,15 +98,27 @@ export default class InteractiveImage extends Component<InteractiveImageContaine
         }
         return <Hotspot {...commonProps} />
     }
-
+    onMouseDown =(evt: React.MouseEvent<SVGSVGElement>)=>{ // ES6 format so we have a this without binding
+        const svg = this.mySvgRef.current
+        const pt = svg?.createSVGPoint()
+        if (svg && pt){
+            pt.x = evt.pageX; 
+            pt.y = evt.pageY; // If we use the clientY then scrolling is not incorporated?
+            var cursorpt =  pt.matrixTransform(svg.getScreenCTM()?.inverse());// The cursor point, translated into svg coordinates
+            console.log(`mousedown ${cursorpt.x}, ${cursorpt.y}`)
+        }
+    }
     renderOverlay(){
         const {data} = this.props
         const {height, width} = this.state
 
         if (data?.status == ValueStatus.Available && height > 0 && width > 0){
-            console.info(`${this._id}: render overlay with dimensions ${width}/${height}`)
+            console.log(`${this._id}: render overlay with dimensions ${width}/${height}`)
             return(
-                    <svg viewBox={`0 0 ${width} ${height}`}>
+                    <svg viewBox={`0 0 ${width} ${height}`} 
+                        ref={this.mySvgRef}
+                        onMouseDown={this.onMouseDown} 
+                        >
                         {data?.items?.map((item) => {   // loop inside the jsx just to show how to do it
                             return this.renderHotspot(item)
                         })}
