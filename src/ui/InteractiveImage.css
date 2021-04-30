@@ -1,49 +1,45 @@
 /*
-Place your custom CSS here
+  Render and positioning
 */
 .img-overlay-wrap {
-    position: relative;
-    display: inline-block; /* <= shrinks container to image size */
-  }
-  
-  .img-overlay-wrap img { /* <= optional, for responsiveness */
-     display: block;
-     max-width: 100%;
-     height: auto;
-  }
-  
-  .img-overlay-wrap svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+  position: relative;
+  display: inline-block; /* <= shrinks container to image size */
+}
+.img-overlay-wrap img { /* <= optional, for responsiveness */
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.img-overlay-wrap svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.img-overlay-wrap svg text {
+  pointer-events: none; /* <= show the pointer but do not capture the events */
+  cursor: pointer; 
+}
+.img-overlay-wrap svg rect {
+  pointer-events: all; /* <= show the pointer and capture all events */
+  cursor: pointer; 
+  fill: none;
+}
+/* 
+  Font and colors 
+*/
+.img-overlay-wrap svg g:hover text {
+  fill: blue;
+}
+.img-overlay-wrap svg g:hover rect {
+  fill: #22aa22;
+}
+.img-overlay-wrap svg text{
+  font: 30px serif; fill: red;
+}
+.img-overlay-wrap a:hover{
+  text-decoration: none;
+}
 
-  a {
-    text-decoration: none;
-  }
 
-  a:hover{
-    text-decoration: none;
-  }
 
-  svg text {
-    pointer-events: none;    
-  }
 
-  svg g:hover text {
-    fill: blue;
-  }
-
-  svg rect {
-    fill: none;
-    pointer-events: all;
-    cursor: pointer; 
-  }
-
-  svg g:hover rect {
-    fill: #22aa22;
-  }
-
-  svg text{
-    font: 30px serif; fill: red;
-  }
