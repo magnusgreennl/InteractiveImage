@@ -19,6 +19,7 @@ export interface InteractiveImageContainerProps {
     height: ListAttributeValue<BigJs.Big>;
     text?: ListAttributeValue<string>;
     actionOnClick?: ListActionValue;
+    unavailable?: ListValue;
 }
 
 export interface InteractiveImagePreviewProps {
@@ -32,4 +33,5 @@ export interface InteractiveImagePreviewProps {
     height: string;
     text: string;
     actionOnClick: {} | null;
+    unavailable: {} | null;
 }

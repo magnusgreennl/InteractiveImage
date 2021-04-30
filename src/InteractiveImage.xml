@@ -50,11 +50,15 @@
                 <attributeTypes>
                     <attributeType name="String"/>
                 </attributeTypes>
-            </property>                     
+            </property>  
             <property key="actionOnClick" type="action" dataSource="data">
                 <caption>On click</caption>
                 <description>Action to be performed when area is clicked</description>
-            </property>            
+            </property>                 
+            <property key="unavailable" type="datasource" isList="true" required="false">
+                <caption>Unavailable items</caption>
+                <description>This should return a list of the same objects as the Datasource</description>        
+            </property>                                                   
         </propertyGroup>                             
     </properties>
 </widget>
