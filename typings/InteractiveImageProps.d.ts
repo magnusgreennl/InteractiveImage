@@ -4,7 +4,7 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
-import { DynamicValue, ListValue, ListActionValue, ListAttributeValue, WebImage } from "mendix";
+import { ActionValue, DynamicValue, ListValue, ListActionValue, ListAttributeValue, WebImage } from "mendix";
 
 export interface InteractiveImageContainerProps {
     name: string;
@@ -20,6 +20,7 @@ export interface InteractiveImageContainerProps {
     text?: ListAttributeValue<string>;
     actionOnClick?: ListActionValue;
     unavailable?: ListValue;
+    markSelection?: ActionValue;
 }
 
 export interface InteractiveImagePreviewProps {
@@ -34,4 +35,5 @@ export interface InteractiveImagePreviewProps {
     text: string;
     actionOnClick: {} | null;
     unavailable: {} | null;
+    markSelection: {} | null;
 }

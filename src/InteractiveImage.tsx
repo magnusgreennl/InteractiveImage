@@ -23,7 +23,14 @@ export default class InteractiveImage extends Component<InteractiveImageContaine
     // Use a reference to determine the image height that will be used for the svg viewport
     private myImageRef = createRef<HTMLImageElement>()
     private mySvgRef = createRef<SVGSVGElement>()
+    private myCanvasRef = createRef<HTMLCanvasElement>()
     private _id: String
+
+                    // this flage is true when the user is dragging the mouse
+                    private isDown = false;
+                    // these vars will hold the starting mouse position
+                    private startX:number=0;
+                    private startY:number=0;
 
     readonly state: InteractiveImageState = {
         height: 0,
@@ -98,14 +105,62 @@ export default class InteractiveImage extends Component<InteractiveImageContaine
         }
         return <Hotspot {...commonProps} />
     }
-    onMouseDown =(evt: React.MouseEvent<SVGSVGElement>)=>{ // ES6 format so we have a this without binding
+    onMouseMove =(evt: React.MouseEvent<SVGSVGElement>)=>{ 
+        // if we're not dragging, just return
+        if (!this.isDown) return;
+        this.drawSelectionRectangle(this.getMousePosition(evt)!)
+    }
+    onMouseLeave =(evt: React.MouseEvent<SVGSVGElement>)=>{
+        this.clearSelectionRectangle()
+    } 
+    onMouseUp =(evt: React.MouseEvent<SVGSVGElement>)=>{
+        this.clearSelectionRectangle()
+        var pt = this.getMousePosition(evt)
+        if (pt){
+            // fire the event
+            console.log(`mouseup ${pt.x}, ${pt.y}`)
+            
+        }        
+    }
+    clearSelectionRectangle=()=>{
+        // the drag is over, clear the dragging flag
+        this.isDown = false;
+        const canvas = this.myCanvasRef.current
+        var ctx = canvas!.getContext('2d');
+        ctx!.clearRect(0, 0, canvas!.width, canvas!.height);// clear the canvas
+    }
+    drawSelectionRectangle=(pt:DOMPoint)=>{
+        const canvas = this.myCanvasRef.current
+        var ctx = canvas!.getContext('2d');
+        ctx!.clearRect(0, 0, canvas!.width, canvas!.height);// clear the canvas
+        // calculate the rectangle width/height based on starting vs current mouse position
+        var width  = pt.x - this.startX;
+        var height = pt.y - this.startY;
+
+        // draw a new rect from the start position to the current mouse position
+        ctx!.strokeRect(this.startX, this.startY, width, height)
+    }
+    getMousePosition=(evt: React.MouseEvent<SVGSVGElement>):DOMPoint|undefined => {
         const svg = this.mySvgRef.current
         const pt = svg?.createSVGPoint()
         if (svg && pt){
             pt.x = evt.pageX; 
             pt.y = evt.pageY; // If we use the clientY then scrolling is not incorporated?
-            var cursorpt =  pt.matrixTransform(svg.getScreenCTM()?.inverse());// The cursor point, translated into svg coordinates
-            console.log(`mousedown ${cursorpt.x}, ${cursorpt.y}`)
+            return pt.matrixTransform(svg.getScreenCTM()?.inverse());// The cursor point, translated into svg coordinates
+        }
+        return undefined;
+    }
+    onMouseDown =(evt: React.MouseEvent<SVGSVGElement>)=>{ // ES6 format so we have a this without binding
+        var pt = this.getMousePosition(evt)
+        if (pt){
+            console.log(`mousedown ${pt.x}, ${pt.y}`)
+ 
+            // save the starting x/y of the rectangle
+            this.startX = pt.x // We can use the one reported by the SVG here since we generate them with the same dimensions
+            this.startY = pt.y
+
+            // set a flag indicating the drag has begun
+            this.isDown = true;
         }
     }
     renderOverlay(){
@@ -115,14 +170,21 @@ export default class InteractiveImage extends Component<InteractiveImageContaine
         if (data?.status == ValueStatus.Available && height > 0 && width > 0){
             console.log(`${this._id}: render overlay with dimensions ${width}/${height}`)
             return(
+                <div>
+                    <canvas ref={this.myCanvasRef} id="canvas" width={width} height={height}></canvas>
+
                     <svg viewBox={`0 0 ${width} ${height}`} 
                         ref={this.mySvgRef}
-                        onMouseDown={this.onMouseDown} 
+                        onMouseDown={this.onMouseDown}
+                        onMouseUp={this.onMouseUp}
+                        onMouseMove={this.onMouseMove}
+                        onMouseLeave={this.onMouseLeave}
                         >
                         {data?.items?.map((item) => {   // loop inside the jsx just to show how to do it
                             return this.renderHotspot(item)
                         })}
                     </svg>
+                </div>
             )
         } else {
             return null;
