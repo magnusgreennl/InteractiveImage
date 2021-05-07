@@ -24,6 +24,10 @@
   cursor: pointer; 
   fill: none;
 }
+.img-overlay-wrap canvas{ 
+  width: 100%;  /* Different from the actual canvas size in pixels, needed for responsiveness */
+  height: 100%;
+}
 /* 
   Font and colors 
 */

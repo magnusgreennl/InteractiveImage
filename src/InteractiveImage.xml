@@ -59,9 +59,16 @@
                 <caption>Unavailable items</caption>
                 <description>This should return a list of the same objects as the Datasource</description>        
             </property>
-            <property key="markSelection" type="action">
-                <caption>On click</caption>
-                <description>Action to be performed when area is clicked</description>
+            <property key="selectionFeedback" type="attribute" required="false" onChange="onSelectionFeedback">
+                <caption>SelectionFeedback</caption>
+                <description>Attribute used for the selection feedback (use in combination with the onSelection action)</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>                
+            </property>            
+            <property key="onSelectionFeedback" type="action">
+                <caption>On selectionFeedback</caption>
+                <description>Action to be performed when a selection rectangle is drawn</description>
             </property>                                                             
         </propertyGroup>                             
     </properties>
