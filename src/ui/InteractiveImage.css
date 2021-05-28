@@ -6,9 +6,15 @@
   display: inline-block; /* <= shrinks container to image size */
 }
 .img-overlay-wrap img { /* <= optional, for responsiveness */
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+}
+.img-overlay-wrap .responsive-width img { /* <= optional, for responsiveness */
+  max-width: 100%;
+  height: auto;
+}
+.img-overlay-wrap .responsive-height img { /* <= optional, for responsiveness */
+  max-height: 100%;
+  width: auto;
 }
 .img-overlay-wrap svg,canvas {
   position: absolute;

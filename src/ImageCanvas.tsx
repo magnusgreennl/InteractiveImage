@@ -40,9 +40,11 @@ export default class ImageCanvas extends Component<ImageCanvasProps> {
         const {bgImage} = this.props;
         // See if we have a background image available
         if (bgImage?.status == ValueStatus.Available){
+            let className = "image"
+            className += " responsive-height"
             return (
                 <img 
-                    className="image" 
+                    className={className}
                     src={bgImage.value.uri} 
                     ref={this.myImageRef}
                     onLoad={() => {
