@@ -1,7 +1,7 @@
 const merge = require("webpack-merge");
-const baseConfig = require("@mendix/pluggable-widgets-tools/configs/webpack.config.prod");
+const commonConfig = require("@mendix/pluggable-widgets-tools/configs/webpack.config.prod");
 
-const customConfig = {
+const prodConfig = {
     module: {
         rules: [
             {
@@ -11,5 +11,6 @@ const customConfig = {
         ]
     }
 };
+const previewProdConfig = {}
 
-module.exports = [merge(baseConfig[0], customConfig), merge(baseConfig[1], customConfig)];
+module.exports = [merge(commonConfig[0], prodConfig), merge(commonConfig[1], previewProdConfig), commonConfig[2]];
