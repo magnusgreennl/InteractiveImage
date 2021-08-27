@@ -1,3 +1,55 @@
 /*
-Place your custom CSS here
+  Render and positioning
 */
+.img-overlay-wrap {
+  position: relative;
+  display: inline-block; /* <= shrinks container to image size */
+}
+.img-overlay-wrap img { /* <= optional, for responsiveness */
+  display: block;
+}
+.img-overlay-wrap .responsive-width img { /* <= optional, for responsiveness */
+  max-width: 100%;
+  height: auto;
+}
+.img-overlay-wrap .responsive-height img { /* <= optional, for responsiveness */
+  max-height: 100%;
+  width: auto;
+}
+.img-overlay-wrap svg,canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.img-overlay-wrap svg text {
+  pointer-events: none; /* <= show the pointer but do not capture the events */
+  cursor: pointer; 
+}
+.img-overlay-wrap svg rect {
+  pointer-events: all; /* <= show the pointer and capture all events */
+  cursor: pointer; 
+  fill: none;
+}
+.img-overlay-wrap canvas{ 
+  width: 100%;  /* Different from the actual canvas size in pixels, needed for responsiveness */
+  height: 100%;
+}
+/* 
+  Font and colors 
+*/
+.img-overlay-wrap svg g:hover text {
+  fill: blue;
+}
+.img-overlay-wrap svg g:hover rect {
+  fill: #22aa22;
+}
+.img-overlay-wrap svg text{
+  font: 30px serif; fill: red;
+}
+.img-overlay-wrap a:hover{
+  text-decoration: none;
+}
+
+
+
+

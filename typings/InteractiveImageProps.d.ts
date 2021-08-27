@@ -4,7 +4,7 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
-import { DynamicValue, WebImage } from "mendix";
+import { ActionValue, DynamicValue, EditableValue, ListValue, ListActionValue, ListAttributeValue, WebImage } from "mendix";
 
 export interface InteractiveImageContainerProps {
     name: string;
@@ -12,10 +12,30 @@ export interface InteractiveImageContainerProps {
     style?: CSSProperties;
     tabIndex?: number;
     bgImage?: DynamicValue<WebImage>;
+    data?: ListValue;
+    x: ListAttributeValue<BigJs.Big>;
+    y: ListAttributeValue<BigJs.Big>;
+    width: ListAttributeValue<BigJs.Big>;
+    height: ListAttributeValue<BigJs.Big>;
+    text?: ListAttributeValue<string>;
+    actionOnClick?: ListActionValue;
+    unavailable?: ListValue;
+    selectionFeedback?: EditableValue<string>;
+    onSelectionFeedback?: ActionValue;
 }
 
 export interface InteractiveImagePreviewProps {
     class: string;
     style: string;
     bgImage: string;
+    data: {} | null;
+    x: string;
+    y: string;
+    width: string;
+    height: string;
+    text: string;
+    actionOnClick: {} | null;
+    unavailable: {} | null;
+    selectionFeedback: string;
+    onSelectionFeedback: {} | null;
 }
