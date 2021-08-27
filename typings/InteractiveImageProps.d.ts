@@ -11,8 +11,6 @@ export interface InteractiveImageContainerProps {
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    showSampleText: boolean;
-    sampleText: string;
     bgImage?: DynamicValue<WebImage>;
     data?: ListValue;
     x: ListAttributeValue<BigJs.Big>;
@@ -29,8 +27,6 @@ export interface InteractiveImageContainerProps {
 export interface InteractiveImagePreviewProps {
     class: string;
     style: string;
-    showSampleText: boolean;
-    sampleText: string;
     bgImage: string;
     data: {} | null;
     x: string;

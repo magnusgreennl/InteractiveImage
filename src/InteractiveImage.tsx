@@ -7,7 +7,7 @@ import { ValueStatus, ObjectItem } from "mendix"
 import "./ui/InteractiveImage.css"
 
 import { Hotspot } from "./components/Hotspot"
-import ImageCanvas, {Point} from "./ImageCanvas"
+import ImageCanvas, {Point} from "./components/ImageCanvas"
 
 // Mendix will compain that we are not using Get(), however the current version of the pluggable widget does not yet support this...
 // https://docs.mendix.com/apidocs-mxsdk/apidocs/client-apis-for-pluggable-widgets#get-function
