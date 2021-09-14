@@ -1,7 +1,7 @@
 import { Component, ReactNode, createElement, createRef } from "react"
 import { ValueStatus, DynamicValue, WebImage } from "mendix"
 
-import "./ui/InteractiveImage.css"
+import "../ui/InteractiveImage.css"
 
 export interface ImageCanvasProps {
     bgImage?: DynamicValue<WebImage>;

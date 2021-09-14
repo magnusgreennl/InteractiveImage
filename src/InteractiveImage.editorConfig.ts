@@ -18,7 +18,7 @@ import {
     RowLayoutProps,
     StructurePreviewProps,
     transformGroupsIntoTabs
-} from "./EditorConfig/bin";
+} from "./EditorConfig/dist";
 import { InteractiveImagePreviewProps } from "../typings/InteractiveImageProps";
 
 export function getProperties(
