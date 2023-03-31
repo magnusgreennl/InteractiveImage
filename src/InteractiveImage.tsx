@@ -83,7 +83,7 @@ export default class InteractiveImage extends Component<InteractiveImageContaine
         const {data, bgImage} = this.props
         if (data?.status == ValueStatus.Available)
         return(            
-            <div className="img-overlay-wrap">
+            <div className="img-scroll-container">
                 <ImageCanvas bgImage={bgImage} onSelection={this.onSelection}>
                     {data?.items?.map((item) => {   // loop inside the jsx just to show how to do it
                         return this.renderHotspot(item)
@@ -91,6 +91,6 @@ export default class InteractiveImage extends Component<InteractiveImageContaine
                 </ImageCanvas>
             </div>
         ) 
-        return <div className="img-overlay-wrap">Loading...</div>
+        return <div className="img-scroll-container">Loading...</div>
     }        
 }

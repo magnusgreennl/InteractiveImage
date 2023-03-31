@@ -1,20 +1,20 @@
 /*
   Render and positioning
 */
+.img-scroll-container{
+  overflow: scroll;
+}
 .img-overlay-wrap {
   position: relative;
-  display: inline-block; /* <= shrinks container to image size */
+  display: flex;
+  width: 1000px; /* this determines the zoom level */
 }
-.img-overlay-wrap img { /* <= optional, for responsiveness */
-  display: block;
+
+.img-overlay-wrap img.responsive-width { /* <= optional, for responsiveness */
+  height: 100%
 }
-.img-overlay-wrap .responsive-width img { /* <= optional, for responsiveness */
-  max-width: 100%;
-  height: auto;
-}
-.img-overlay-wrap .responsive-height img { /* <= optional, for responsiveness */
-  max-height: 100%;
-  width: auto;
+.img-overlay-wrap img.responsive-height { /* <= optional, for responsiveness */
+  width: 100%;
 }
 .img-overlay-wrap svg,canvas {
   position: absolute;
